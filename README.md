@@ -8,9 +8,15 @@
 
 基于 **Tauri + React + Rust + SQLite** 构建的 Windows 桌面应用。
 
-**当前版本：0.4.1 候选版。** 已实现主要学习流程，适合受控试用；尚未完成全部公开发布验收，本仓库暂不提供正式安装包。
+**当前版本：0.4.1 候选版。** 已实现主要学习流程，适合受控试用；尚未完成全部公开发布验收。
 
 ## 快速开始
+
+### 下载安装包
+
+前往 [0.4.1-rc1 预发布页面](https://github.com/qiao11072/Learnloom/releases/tag/v0.4.1-rc1)，下载 `Learnloom_0.4.1_x64-setup.exe`，适用于 Windows x64。校验文件与第三方许可材料随版本提供。
+
+该候选包尚未签名，干净 Windows 安装矩阵仍有未验证项。缺少 WebView2 时需要联网安装依赖。升级前请整库备份，首次试用建议使用独立知识库。
 
 ### 从源码启动
 
@@ -124,8 +130,6 @@ cargo test --locked --manifest-path src-tauri/Cargo.toml --no-default-features -
 - 干净 Windows 的依赖安装矩阵、签名及分发验收尚未完成。
 - 仓库不包含个人知识库、API 密钥、调用账本、内部验收报告或历史模型输出。产品许可证尚未指定。
 
-## 参考与反馈
-
-README 的组织方式参考 [Learn Everything](https://github.com/redmaplewww/learn-everything)。以上功能与使用步骤均按 Learnloom 当前实现编写。
+## 反馈
 
 遇到问题或有改进建议，欢迎提交 [Issue](https://github.com/qiao11072/Learnloom/issues)。请说明应用版本、复现步骤与错误提示，避免附带 API Key 或个人知识库内容。
