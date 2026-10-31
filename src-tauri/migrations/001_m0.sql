@@ -1,0 +1,18 @@
+PRAGMA foreign_keys=ON;
+CREATE TABLE sources(id TEXT PRIMARY KEY,title TEXT NOT NULL,hash TEXT NOT NULL UNIQUE,path TEXT NOT NULL);
+CREATE TABLE pages(id TEXT PRIMARY KEY,title TEXT NOT NULL,current_revision TEXT NOT NULL,indexed_revision TEXT,index_target TEXT NOT NULL,index_state TEXT NOT NULL DEFAULT 'ready');
+CREATE TABLE revisions(id TEXT PRIMARY KEY,page_id TEXT NOT NULL REFERENCES pages(id) DEFERRABLE INITIALLY DEFERRED,path TEXT NOT NULL,hash TEXT NOT NULL,source_id TEXT NOT NULL REFERENCES sources(id));
+CREATE TABLE chunks(rowid INTEGER PRIMARY KEY,page_id TEXT NOT NULL REFERENCES pages(id),revision_id TEXT NOT NULL REFERENCES revisions(id),ordinal INTEGER NOT NULL,text TEXT NOT NULL,UNIQUE(revision_id,ordinal));
+CREATE VIRTUAL TABLE page_fts USING fts5(title,body,tokenize='trigram');
+CREATE TABLE index_tasks(page_id TEXT PRIMARY KEY REFERENCES pages(id),target TEXT NOT NULL,status TEXT NOT NULL);
+CREATE TABLE points(id TEXT PRIMARY KEY,name TEXT NOT NULL,scope TEXT NOT NULL,page_id TEXT NOT NULL REFERENCES pages(id),revision_id TEXT NOT NULL REFERENCES revisions(id),evidence TEXT NOT NULL);
+CREATE TABLE jobs(id TEXT PRIMARY KEY,business_key TEXT NOT NULL UNIQUE,request_hash TEXT NOT NULL,kind TEXT NOT NULL,entity_id TEXT NOT NULL,status TEXT NOT NULL,active_run TEXT NOT NULL,seq INTEGER NOT NULL DEFAULT 0);
+CREATE TABLE runs(id TEXT PRIMARY KEY,job_id TEXT NOT NULL REFERENCES jobs(id),run_no INTEGER NOT NULL,status TEXT NOT NULL,snapshot TEXT NOT NULL,active_call TEXT,UNIQUE(job_id,run_no));
+CREATE TABLE request_keys(key TEXT PRIMARY KEY,payload_hash TEXT NOT NULL,entity_id TEXT NOT NULL);
+CREATE TABLE sessions(id TEXT PRIMARY KEY,date TEXT NOT NULL UNIQUE,status TEXT NOT NULL,actual_count INTEGER NOT NULL DEFAULT 0,target_count INTEGER NOT NULL DEFAULT 5,job_id TEXT REFERENCES jobs(id),active_run TEXT,seq INTEGER NOT NULL DEFAULT 0);
+CREATE TABLE questions(id TEXT PRIMARY KEY,session_id TEXT NOT NULL REFERENCES sessions(id),point_id TEXT NOT NULL REFERENCES points(id),ordinal INTEGER NOT NULL,prompt TEXT NOT NULL CHECK(length(trim(prompt))>0),reference TEXT NOT NULL,explanation TEXT NOT NULL,rubric TEXT NOT NULL,snapshot TEXT NOT NULL,fingerprint TEXT NOT NULL,reused_from TEXT REFERENCES questions(id),UNIQUE(session_id,point_id),UNIQUE(session_id,fingerprint),UNIQUE(session_id,ordinal));
+CREATE TABLE attempts(id TEXT PRIMARY KEY,question_id TEXT NOT NULL UNIQUE REFERENCES questions(id),submission_key TEXT NOT NULL UNIQUE,request_hash TEXT NOT NULL,answer TEXT NOT NULL CHECK(length(trim(answer))>0),submitted_at TEXT NOT NULL,status TEXT NOT NULL,active_run TEXT NOT NULL,job_id TEXT NOT NULL REFERENCES jobs(id),score INTEGER,feedback TEXT,graded_at TEXT,CHECK((status='graded' AND score IN(0,1,2) AND graded_at IS NOT NULL) OR (status<>'graded' AND score IS NULL AND graded_at IS NULL)));
+CREATE TABLE mastery(point_id TEXT PRIMARY KEY REFERENCES points(id),count INTEGER NOT NULL,recent REAL NOT NULL,weak INTEGER NOT NULL);
+CREATE TABLE messages(id TEXT PRIMARY KEY,job_id TEXT NOT NULL REFERENCES jobs(id),active_run TEXT NOT NULL,body TEXT NOT NULL DEFAULT '',refs TEXT NOT NULL DEFAULT '[]',status TEXT NOT NULL,seq INTEGER NOT NULL DEFAULT 0);
+CREATE TABLE probe_counter(id INTEGER PRIMARY KEY,n INTEGER NOT NULL);
+PRAGMA user_version=1;

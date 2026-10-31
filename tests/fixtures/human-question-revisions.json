@@ -1,0 +1,298 @@
+{
+  "suite": "human-question-revisions-v1",
+  "grading_standard": "grading_standard_v1",
+  "revisions": [
+    {
+      "id": "Q04-1-R1",
+      "source": "对温度等条件不变的欧姆导体，电压等于电流乘电阻：U=IR。",
+      "question": {
+        "point_id": "p3",
+        "prompt": "欧姆定律适用于什么条件的导体？电压、电流和电阻满足什么关系？",
+        "reference": "温度等条件不变的欧姆导体满足U=IR。",
+        "explanation": "对温度等条件不变的欧姆导体，电压等于电流乘电阻：U=IR。",
+        "required": [
+          "温度等条件不变的欧姆导体",
+          "U=IR"
+        ],
+        "critical_errors": [
+          "U=I/R",
+          "声称温度任意变化也总保持同一电阻"
+        ]
+      },
+      "proposed_answer_cases": [
+        {
+          "answer": "温度等条件不变的欧姆导体满足U=IR。",
+          "proposed_score": 2,
+          "matched": [
+            {
+              "id": "R0",
+              "quote": "温度等条件不变的欧姆导体"
+            },
+            {
+              "id": "R1",
+              "quote": "U=IR"
+            }
+          ],
+          "missing": [],
+          "critical": []
+        },
+        {
+          "answer": "U=IR。",
+          "proposed_score": 1,
+          "matched": [
+            {
+              "id": "R1",
+              "quote": "U=IR"
+            }
+          ],
+          "missing": [
+            "R0"
+          ],
+          "critical": []
+        },
+        {
+          "answer": "温度等条件不变的欧姆导体满足U=I/R。",
+          "proposed_score": 0,
+          "matched": [
+            {
+              "id": "R0",
+              "quote": "温度等条件不变的欧姆导体"
+            }
+          ],
+          "missing": [
+            "R1"
+          ],
+          "critical": [
+            {
+              "id": "C0",
+              "quote": "U=I/R"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q04-2-R1",
+      "source": "对温度等条件不变的欧姆导体，电压等于电流乘电阻：U=IR。",
+      "question": {
+        "point_id": "p3",
+        "prompt": "欧姆定律适用于什么条件的导体？电压、电流和电阻满足什么关系？",
+        "reference": "温度等条件不变的欧姆导体满足U=IR。",
+        "explanation": "对温度等条件不变的欧姆导体，电压等于电流乘电阻：U=IR。",
+        "required": [
+          "温度等条件不变的欧姆导体",
+          "U=IR"
+        ],
+        "critical_errors": [
+          "U=I/R",
+          "声称温度任意变化也总保持同一电阻"
+        ]
+      },
+      "proposed_answer_cases": [
+        {
+          "answer": "温度等条件不变的欧姆导体满足U=IR。",
+          "proposed_score": 2,
+          "matched": [
+            {
+              "id": "R0",
+              "quote": "温度等条件不变的欧姆导体"
+            },
+            {
+              "id": "R1",
+              "quote": "U=IR"
+            }
+          ],
+          "missing": [],
+          "critical": []
+        },
+        {
+          "answer": "U=IR。",
+          "proposed_score": 1,
+          "matched": [
+            {
+              "id": "R1",
+              "quote": "U=IR"
+            }
+          ],
+          "missing": [
+            "R0"
+          ],
+          "critical": []
+        },
+        {
+          "answer": "温度等条件不变的欧姆导体满足U=I/R。",
+          "proposed_score": 0,
+          "matched": [
+            {
+              "id": "R0",
+              "quote": "温度等条件不变的欧姆导体"
+            }
+          ],
+          "missing": [
+            "R1"
+          ],
+          "critical": [
+            {
+              "id": "C0",
+              "quote": "U=I/R"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q04-3-R1",
+      "source": "对温度等条件不变的欧姆导体，电压等于电流乘电阻：U=IR。",
+      "question": {
+        "point_id": "p3",
+        "prompt": "欧姆定律适用于什么条件的导体？电压、电流和电阻满足什么关系？",
+        "reference": "温度等条件不变的欧姆导体满足U=IR。",
+        "explanation": "对温度等条件不变的欧姆导体，电压等于电流乘电阻：U=IR。",
+        "required": [
+          "温度等条件不变的欧姆导体",
+          "U=IR"
+        ],
+        "critical_errors": [
+          "U=I/R",
+          "声称温度任意变化也总保持同一电阻"
+        ]
+      },
+      "proposed_answer_cases": [
+        {
+          "answer": "温度等条件不变的欧姆导体满足U=IR。",
+          "proposed_score": 2,
+          "matched": [
+            {
+              "id": "R0",
+              "quote": "温度等条件不变的欧姆导体"
+            },
+            {
+              "id": "R1",
+              "quote": "U=IR"
+            }
+          ],
+          "missing": [],
+          "critical": []
+        },
+        {
+          "answer": "U=IR。",
+          "proposed_score": 1,
+          "matched": [
+            {
+              "id": "R1",
+              "quote": "U=IR"
+            }
+          ],
+          "missing": [
+            "R0"
+          ],
+          "critical": []
+        },
+        {
+          "answer": "温度等条件不变的欧姆导体满足U=I/R。",
+          "proposed_score": 0,
+          "matched": [
+            {
+              "id": "R0",
+              "quote": "温度等条件不变的欧姆导体"
+            }
+          ],
+          "missing": [
+            "R1"
+          ],
+          "critical": [
+            {
+              "id": "C0",
+              "quote": "U=I/R"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q08-1-R1",
+      "source": "质量是计算密度所需的输入量，密度等于质量除以体积，符号表达式为ρ=m/V。",
+      "question": {
+        "point_id": "p7",
+        "prompt": "计算密度需要哪些输入量？写出密度与这些量的关系，可以使用等价关系式。",
+        "reference": "需要质量m和体积V，ρ=m/V；正确等价式m=ρV或V=m/ρ也可表达相同关系。",
+        "explanation": "质量是计算密度所需的输入量，密度等于质量除以体积，符号表达式为ρ=m/V。",
+        "required": [
+          "质量与体积为所需输入量",
+          "ρ=m/V或表达同一关系的正确等价式"
+        ],
+        "critical_errors": [
+          "ρ=V/m",
+          "ρ=m×V"
+        ]
+      },
+      "proposed_answer_cases": [
+        {
+          "answer": "质量m和体积V，m=ρV。",
+          "proposed_score": 2,
+          "matched": [
+            {
+              "id": "R0",
+              "quote": "质量m和体积V"
+            },
+            {
+              "id": "R1",
+              "quote": "m=ρV"
+            }
+          ],
+          "missing": [],
+          "critical": []
+        },
+        {
+          "answer": "需要质量和体积。",
+          "proposed_score": 1,
+          "matched": [
+            {
+              "id": "R0",
+              "quote": "质量和体积"
+            }
+          ],
+          "missing": [
+            "R1"
+          ],
+          "critical": []
+        },
+        {
+          "answer": "需要质量和体积，ρ=V/m。",
+          "proposed_score": 0,
+          "matched": [
+            {
+              "id": "R0",
+              "quote": "质量和体积"
+            }
+          ],
+          "missing": [
+            "R1"
+          ],
+          "critical": [
+            {
+              "id": "C0",
+              "quote": "ρ=V/m"
+            }
+          ]
+        },
+        {
+          "answer": "质量m和体积V，V=m/ρ。",
+          "proposed_score": 2,
+          "matched": [
+            {
+              "id": "R0",
+              "quote": "质量m和体积V"
+            },
+            {
+              "id": "R1",
+              "quote": "V=m/ρ"
+            }
+          ],
+          "missing": [],
+          "critical": []
+        }
+      ]
+    }
+  ]
+}

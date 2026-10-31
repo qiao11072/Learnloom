@@ -1,0 +1,189 @@
+{
+  "description": "M2 development evaluation; M0 facts reused, new explicit English glossary and queries frozen before first run. No claim of blind holdout.",
+  "pages": [
+    {
+      "title": "催化剂",
+      "body": "催化剂降低反应路径的活化能，使平衡更快到达，但不改变平衡常数和平衡位置。\n英文检索词：catalyst activation energy equilibrium"
+    },
+    {
+      "title": "数据库事务",
+      "body": "数据库事务把多项更改作为一个整体：提交使更改生效，回滚撤销未提交更改。\n英文检索词：transaction rollback commit"
+    },
+    {
+      "title": "二分查找",
+      "body": "二分查找要求数据有序，每轮比较中间值并排除一半候选区间。\n英文检索词：binary search sorted data"
+    },
+    {
+      "title": "欧姆定律",
+      "body": "对温度等条件不变的欧姆导体，电压等于电流乘电阻：U=IR。\n英文检索词：Ohm U IR"
+    },
+    {
+      "title": "算术平均数",
+      "body": "一组数的算术平均数等于所有数的总和除以数的个数。\n英文检索词：arithmetic mean average 均值"
+    },
+    {
+      "title": "栈",
+      "body": "栈遵循后进先出，入栈和出栈都发生在栈顶。\n英文检索词：stack LIFO"
+    },
+    {
+      "title": "队列",
+      "body": "普通队列遵循先进先出，从队尾入队、从队首出队。\n英文检索词：queue FIFO"
+    },
+    {
+      "title": "密度",
+      "body": "质量是计算密度所需的输入量，密度等于质量除以体积，符号表达式为ρ=m/V。\n英文检索词：density mass volume"
+    },
+    {
+      "title": "缓存命中",
+      "body": "缓存命中表示请求的数据已在缓存中，可以直接从缓存读取，无需为该次请求读取源存储。\n英文检索词：cache hit"
+    },
+    {
+      "title": "版本快照",
+      "body": "不可变版本快照固定创建时的内容；后来原内容的更新不改变已有快照。\n英文检索词：snapshot immutable"
+    }
+  ],
+  "answerable": [
+    {
+      "query": "活化能",
+      "page": 0
+    },
+    {
+      "query": "catalyst",
+      "page": 0
+    },
+    {
+      "query": "催化剂如何影响活化能和平衡位置？",
+      "page": 0
+    },
+    {
+      "query": "事务",
+      "page": 1
+    },
+    {
+      "query": "transaction rollback",
+      "page": 1
+    },
+    {
+      "query": "事务如何组织多项更改，回滚如何处理未提交更改？",
+      "page": 1
+    },
+    {
+      "query": "二分",
+      "page": 2
+    },
+    {
+      "query": "binary search",
+      "page": 2
+    },
+    {
+      "query": "二分查找对数据有何要求，每轮如何缩小区间？",
+      "page": 2
+    },
+    {
+      "query": "欧姆",
+      "page": 3
+    },
+    {
+      "query": "Ohm U IR",
+      "page": 3
+    },
+    {
+      "query": "欧姆定律适用的导体条件和电压、电流、电阻的关系分别是什么？",
+      "page": 3
+    },
+    {
+      "query": "均值",
+      "page": 4
+    },
+    {
+      "query": "arithmetic mean",
+      "page": 4
+    },
+    {
+      "query": "求算术平均数先如何处理所有数，再如何利用个数？",
+      "page": 4
+    },
+    {
+      "query": "栈",
+      "page": 5
+    },
+    {
+      "query": "stack LIFO",
+      "page": 5
+    },
+    {
+      "query": "栈按什么顺序取出元素，入栈和出栈发生在哪里？",
+      "page": 5
+    },
+    {
+      "query": "队列",
+      "page": 6
+    },
+    {
+      "query": "queue FIFO",
+      "page": 6
+    },
+    {
+      "query": "普通队列遵循什么顺序，分别从哪端入队和出队？",
+      "page": 6
+    },
+    {
+      "query": "密度",
+      "page": 7
+    },
+    {
+      "query": "density",
+      "page": 7
+    },
+    {
+      "query": "计算密度是否需要质量，密度与质量和体积有什么关系？",
+      "page": 7
+    },
+    {
+      "query": "缓存",
+      "page": 8
+    },
+    {
+      "query": "cache hit",
+      "page": 8
+    },
+    {
+      "query": "缓存命中表示数据在哪里，该请求还需读取源存储吗？",
+      "page": 8
+    },
+    {
+      "query": "快照",
+      "page": 9
+    },
+    {
+      "query": "snapshot immutable",
+      "page": 9
+    },
+    {
+      "query": "不可变快照固定何时的内容，原内容后续更新是否改变旧快照？",
+      "page": 9
+    }
+  ],
+  "unanswerable": [
+    "催化剂的发明人是谁？",
+    "催化剂在2025年市场价格是多少？",
+    "事务隔离级别有哪些？",
+    "数据库事务的WAL具体格式是什么？",
+    "二分查找的Rust完整实现是什么？",
+    "二分查找最早的论文作者是谁？",
+    "欧姆的出生日期是什么？",
+    "超导体的临界温度是多少？",
+    "算术平均数的方差公式是什么？",
+    "均值的置信区间怎么计算？",
+    "栈内存默认大小是多少MB？",
+    "stack的并发无锁算法是什么？",
+    "队列的网络协议是什么？",
+    "queue的持久化文件格式是什么？",
+    "黄金的密度数值是多少？",
+    "密度计如何校准？",
+    "缓存的默认TTL是多少秒？",
+    "cache的LRU实现代码是什么？",
+    "快照文件扩展名是什么？",
+    "版本快照如何跨机器加密传输？"
+  ]
+}

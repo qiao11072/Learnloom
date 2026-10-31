@@ -1,0 +1,40 @@
+{
+  "name": "learnloom",
+  "version": "0.4.1",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 1420 --strictPort",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run",
+    "tauri": "tauri",
+    "m0:rust": "cargo test --manifest-path src-tauri/Cargo.toml --no-default-features --features m0-tools -- --test-threads=1",
+    "m0:probe": "cargo run --manifest-path src-tauri/Cargo.toml --no-default-features --features m0-tools --bin m0-probe -- .m0-data",
+    "m1:test": "cargo test --manifest-path src-tauri/Cargo.toml --no-default-features --features m0-tools --test m1 -- --test-threads=1",
+    "m2:test": "cargo test --manifest-path src-tauri/Cargo.toml --no-default-features --features m0-tools --test m2 -- --test-threads=1",
+    "m3:test": "cargo test --manifest-path src-tauri/Cargo.toml --no-default-features --features m0-tools --test m3 -- --test-threads=1",
+    "m4:test": "cargo test --manifest-path src-tauri/Cargo.toml --no-default-features --features m0-tools --test m3 -- --test-threads=1"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "2.12.4",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-markdown": "10.1.0",
+    "remark-gfm": "4.0.1"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "2.12.4",
+    "@testing-library/dom": "10.4.0",
+    "@testing-library/react": "16.3.0",
+    "@testing-library/user-event": "14.6.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "jsdom": "26.1.0",
+    "typescript": "5.9.3",
+    "vite": "7.3.7",
+    "vitest": "4.1.12"
+  }
+}

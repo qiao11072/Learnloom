@@ -1,0 +1,99 @@
+{
+  "suite": "human-quality-supplement-v1",
+  "mode": "proposed-not-real-evaluated",
+  "grading_standard": "grading_standard_v1",
+  "label_status": "待确认",
+  "source": "催化剂降低反应路径的活化能，使平衡更快到达，但不改变平衡常数和平衡位置。",
+  "question": {
+    "point_id": "supplement-catalyst",
+    "prompt": "催化剂如何影响活化能和平衡位置？",
+    "reference": "降低活化能，不改变平衡位置，只让平衡更快到达。",
+    "explanation": "催化剂降低反应路径的活化能，使平衡更快到达，但不改变平衡常数和平衡位置。",
+    "required": [
+      "降低活化能",
+      "不改变平衡位置"
+    ],
+    "critical_errors": [
+      "使平衡向产物移动",
+      "通过提高体系温度催化",
+      "催化剂不会降低活化能"
+    ]
+  },
+  "rubric_note": "新增C2显式记录否定核心机制的错误命题，仅用于补测题rubric；不改旧固定集。需人工先确认。",
+  "cases": [
+    {
+      "id": "H01",
+      "boundary": "否定错误命题",
+      "answer": "降低活化能，不改变平衡位置；并不是让平衡向产物移动。",
+      "proposed_score": 2,
+      "label_status": "待确认",
+      "real_model_status": "未运行"
+    },
+    {
+      "id": "H02",
+      "boundary": "否定正确要点",
+      "answer": "催化剂不会降低活化能，但不改变平衡位置。",
+      "proposed_score": 0,
+      "label_status": "待确认",
+      "real_model_status": "未运行"
+    },
+    {
+      "id": "H03",
+      "boundary": "自相矛盾",
+      "answer": "催化剂不改变平衡位置，但它又使平衡向产物移动。",
+      "proposed_score": 0,
+      "label_status": "待确认",
+      "real_model_status": "未运行"
+    },
+    {
+      "id": "H04",
+      "boundary": "遗漏",
+      "answer": "降低活化能。",
+      "proposed_score": 1,
+      "label_status": "待确认",
+      "real_model_status": "未运行"
+    },
+    {
+      "id": "H05",
+      "boundary": "无关回答",
+      "answer": "今天我乘公交去图书馆。",
+      "proposed_score": 0,
+      "label_status": "待确认",
+      "real_model_status": "未运行"
+    },
+    {
+      "id": "H06",
+      "boundary": "无关字符串引用",
+      "answer": "“降低活化能”是我随手写下的字符串，和本题无关；我的答案是今天吃面。",
+      "proposed_score": 0,
+      "label_status": "待确认",
+      "real_model_status": "未运行"
+    },
+    {
+      "id": "H07",
+      "boundary": "证据不得代答",
+      "answer": "我不知道。",
+      "proposed_score": 0,
+      "label_status": "待确认",
+      "real_model_status": "未运行"
+    },
+    {
+      "id": "H08",
+      "boundary": "引用错误命题再反驳",
+      "answer": "说催化剂会使平衡向产物移动，这个说法不对；它降低活化能且不改变平衡位置。",
+      "proposed_score": 2,
+      "label_status": "待确认",
+      "real_model_status": "未运行"
+    }
+  ],
+  "plan": {
+    "repetitions": 3,
+    "logical_grade_requests": 24,
+    "max_corrections_per_request": 1,
+    "max_rpc": 48,
+    "context_cap": 4096,
+    "worst_case_reserved_tokens": 196608,
+    "run_status": "未执行",
+    "policy": "人工先确认标签，冻结样本/提示版本；独立保存raw output、quote、canonical Grade、每次纠正、usage；若据此调prompt，该集合随即成为开发集，另留新样本。不得混入原90次分母。"
+  }
+}

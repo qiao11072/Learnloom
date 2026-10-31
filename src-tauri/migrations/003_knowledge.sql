@@ -1,0 +1,13 @@
+CREATE TABLE m1_migrations(version INTEGER PRIMARY KEY, applied_at INTEGER NOT NULL);
+INSERT INTO m1_migrations VALUES(1, CAST(strftime('%s','now') AS INTEGER)*1000);
+CREATE TABLE source_meta(source_id TEXT PRIMARY KEY REFERENCES sources(id),created_at INTEGER NOT NULL,kind TEXT NOT NULL);
+CREATE TABLE job_meta(job_id TEXT PRIMARY KEY REFERENCES jobs(id),stage TEXT NOT NULL,error TEXT NOT NULL DEFAULT '',created_at INTEGER NOT NULL,updated_at INTEGER NOT NULL);
+CREATE TABLE page_meta(page_id TEXT PRIMARY KEY REFERENCES pages(id),scope TEXT NOT NULL,definition TEXT NOT NULL);
+CREATE TABLE source_pages(source_id TEXT NOT NULL REFERENCES sources(id),page_id TEXT NOT NULL REFERENCES pages(id),revision_id TEXT NOT NULL REFERENCES revisions(id),PRIMARY KEY(source_id,page_id,revision_id));
+CREATE TABLE page_links(from_page TEXT NOT NULL REFERENCES pages(id),from_revision TEXT NOT NULL REFERENCES revisions(id),to_page TEXT NOT NULL REFERENCES pages(id),PRIMARY KEY(from_revision,to_page));
+CREATE TABLE point_meta(point_id TEXT PRIMARY KEY REFERENCES points(id),definition TEXT NOT NULL);
+CREATE TABLE page_terms(term TEXT NOT NULL,page_id TEXT NOT NULL REFERENCES pages(id),revision_id TEXT NOT NULL REFERENCES revisions(id),weight INTEGER NOT NULL,PRIMARY KEY(term,page_id,revision_id));
+CREATE INDEX page_terms_lookup ON page_terms(term,revision_id);
+CREATE TABLE source_chunks(source_id TEXT NOT NULL REFERENCES sources(id),ordinal INTEGER NOT NULL,start_byte INTEGER NOT NULL,end_byte INTEGER NOT NULL,hash TEXT NOT NULL,PRIMARY KEY(source_id,ordinal));
+CREATE TABLE checkpoints(key TEXT PRIMARY KEY,source_id TEXT NOT NULL REFERENCES sources(id),artifact_path TEXT NOT NULL,artifact_hash TEXT NOT NULL,adopted_run TEXT NOT NULL REFERENCES runs(id));
+CREATE TABLE model_calls(call_id TEXT PRIMARY KEY,run_id TEXT NOT NULL REFERENCES runs(id),stage TEXT NOT NULL,config_revision INTEGER NOT NULL,preferences_revision INTEGER NOT NULL,prompt_hash TEXT NOT NULL,budget TEXT NOT NULL,status TEXT NOT NULL,usage TEXT,elapsed_ms INTEGER,error TEXT);
